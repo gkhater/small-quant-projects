@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-# Fetch historical stock data for Apple (AAPL)
+# Fetch historical stock data for Apple (NAS100)
 data = yf.download('^NDX', start='2015-01-01', end='2023-01-01')
 
 # Display the first few rows of the data
