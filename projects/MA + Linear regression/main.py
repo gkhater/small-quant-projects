@@ -6,8 +6,8 @@ import backtrader as bt
 if __name__ == '__main__':
     # Define backtesting parameters
     ticker = 'AAPL'
-    start_date = datetime.datetime(2020, 1, 1)
-    end_date = datetime.datetime(2023, 1, 1)
+    start_date = datetime.datetime(2015, 1, 1)
+    end_date = datetime.datetime(2022, 1, 1)
 
     # Fetch and prepare data
     data = model.fetch(ticker, start=start_date, end=end_date)
