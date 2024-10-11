@@ -1,8 +1,5 @@
 import datetime
 import yfinance as yf
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
@@ -23,8 +20,8 @@ Also add daily pct change and RSI
 """
 def add_indicators(data):
     # Calculate 50-day and 200-day moving averages
-    data['50_MA'] = data['Close'].rolling(window=50).mean()
-    data['200_MA'] = data['Close'].rolling(window=200).mean()
+    data['MA_50'] = data['Close'].rolling(window=50).mean()
+    data['MA_200'] = data['Close'].rolling(window=200).mean()
 
     # Calculate percentage change (returns)
     data['Returns'] = data['Close'].pct_change()
@@ -48,7 +45,7 @@ Trains the model using an 80-20 test split
 Using Linear Regression for simplicity (this is my first project)
 """
 def train(data):
-    X = data[['50_MA', '200_MA', 'Returns', 'RSI']]
+    X = data[['MA_50', 'MA_200', 'Returns', 'RSI']]
     y = data['Close'].shift(-1)  # Predict next day's price
 
     # Drop the last row since we won't have a target for the last day
